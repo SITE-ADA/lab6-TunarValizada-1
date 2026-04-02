@@ -8,8 +8,8 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import lombok.AllArgsConstructor;
@@ -40,6 +40,6 @@ public class Category {
     @JsonIgnore
     @ManyToMany(mappedBy = "categories")
     @Default
-    private Set<Product> products = new HashSet<>();
+    private List<Product> products = new ArrayList<>();
 }
 
