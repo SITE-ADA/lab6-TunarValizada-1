@@ -17,6 +17,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Builder.Default;
 
 @Entity
 @Table(name = "categories")
@@ -38,6 +39,7 @@ public class Category {
     // Inverse side of the relationship (Product is the owner)
     @JsonIgnore
     @ManyToMany(mappedBy = "categories")
+    @Default
     private Set<Product> products = new HashSet<>();
 }
 
