@@ -1,6 +1,9 @@
 package az.edu.ada.wm2;
 
+import az.edu.ada.wm2.lab6.Lab6Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 
 /**
  * Test bootstrap configuration.
@@ -11,6 +14,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * to find a {@code @SpringBootConfiguration} by package scanning.
  */
 @SpringBootApplication(scanBasePackages = "az.edu.ada.wm2")
+@ComponentScan(
+        basePackages = "az.edu.ada.wm2",
+        excludeFilters = @ComponentScan.Filter(
+                type = FilterType.ASSIGNABLE_TYPE,
+                classes = Lab6Application.class
+        )
+)
 public class TestApplication {
 }
 
